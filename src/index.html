@@ -67,10 +67,16 @@
 							<p>注）材料はすべて始点で投入している。（　）内は加工進捗度を示す。</p>
             </div>
 
-						<div class="mb-3 row">
+						<div class="row">
               <label for="initial-work-in-progress" class="col-form-label">月初仕掛品</label>
               <div>
                 <input type="number" class="form-control text-right-input" id="initial-work-in-progress" />
+              </div>
+            </div>
+						<div class="mb-3 row">
+              <label for="initial-work-in-progress" class="col-form-label">月初仕掛品(加工進捗度)</label>
+              <div>
+                <input type="number" class="form-control text-right-input" id="initial-work-in-progress-percent" />
               </div>
             </div>
             <div class="mb-3 form-group row">
@@ -85,13 +91,19 @@
                 <input type="number" class="form-control text-right-input" id="total-production" value="" disabled />
               </div>
             </div>
-            <div class="mb-3 row">
+            <div class="row">
               <label for="end-work-in-progress" class="col-form-label">月末仕掛品</label>
               <div>
                 <input type="number" class="form-control text-right-input" id="end-work-in-progress" value="" />
               </div>
             </div>
             <div class="mb-3 row">
+              <label for="end-work-in-progress" class="col-form-label">月末仕掛品(加工進捗度)</label>
+              <div>
+                <input type="number" class="form-control text-right-input" id="end-work-in-progress-percent" value="" />
+              </div>
+            </div>
+						<div class="mb-3 row">
               <label for="finished-goods" class="col-form-label">完成品</label>
               <div>
                 <input type="number" class="form-control text-right-input" id="finished-goods" value="" />
@@ -144,29 +156,29 @@
                 <tr>
                   <th scope="row">月初仕掛品原価</th>
                   <!-- 直接材料費 -->
-                  <td>￥<spam id="">136,000</spam></td>
+                  <td>￥<spam id="tbl-initial-cost-materials">136,000</spam></td>
                   <!-- 加工費 -->
-                  <td>￥<spam>115,200</spam></td>
+                  <td>￥<spam id="tbl-initial-cost-processing">115,200</spam></td>
                   <!-- 計 -->
-                  <td>￥<spam>251,200</spam></td>
+                  <td>￥<spam id="tbl-initial-cost-materials-total">251,200</spam></td>
                 </tr>
                 <tr>
                   <th scope="row">当月製造費用</th>
                   <!-- 直接材料費 -->
-                  <td>￥<spam>1,034,000</spam></td>
+                  <td>￥<spam id="tbl-current-month-manufacturing-expense-materials">1,034,000</spam></td>
                   <!-- 加工費 -->
-                  <td>￥<spam>825,600</spam></td>
+                  <td>￥<spam id="tbl-current-month-manufacturing-expense-processing">825,600</spam></td>
                   <!-- 計 -->
-                  <td>￥<span>1,859,600</spam></td>
+                  <td>￥<span id="tbl-current-month-manufacturing-expense-materials-total">1,859,600</spam></td>
                 </tr>
                 <tr>
                   <th scope="row">計</th>
                   <!-- 直接材料費 -->
-                  <td>￥<span>1,170,000</span></td>
+                  <td>￥<span id="tbl-direct-material-costs-total">1,170,000</span></td>
                   <!-- 加工費 -->
-                  <td>￥<span>940,800</span></td>
+                  <td>￥<span id="processing-cost-total">940,800</span></td>
                   <!-- 計 -->
-                  <td>￥<span>2,110,800</span></td>
+                  <td>￥<span id="all-total">2,110,800</span></td>
                 </tr>
               </tbody>
             </table>
