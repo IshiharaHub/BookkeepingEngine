@@ -1,7 +1,8 @@
 # BookkeepingEngine
 簿記の計算を自動でしてくれるWEBアプリ
+- https://ishiharahub.github.io/BookkeepingEngine/src/index.html
 
-## ファイル変更自の操作方法
+## ファイル変更時の操作方法
 ### index.html を修正した場合
 1. ファイルを修正する
 2. 修正したファイルをステージングに追加する `git add index.html`
