@@ -196,23 +196,49 @@
       <!-- 計算開始 -->
       <div>
         <div class="d-grid gap-2 mb-5">
-          <button class="btn btn-primary" id="calc-start-button" onclick="calcStart()" type="button">計算開始</button>
+          <button
+            class="btn btn-primary"
+            id="calc-start-button"
+            onclick="calcStart()"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#reuslt-area"
+            aria-expanded="false"
+            aria-controls="reuslt-area"
+          >
+            計算開始
+          </button>
         </div>
       </div>
-    </div>
 
-    <!-- ページの説明 -->
-    <div class="mb-5">
-      <!-- <div class="alert alert-primary" role="alert"> -->
-      <p>総合原価の計算を効率的かつ正確に行うことができます。下記のステップに従って、必要な情報を入力し、計算を開始してください。</p>
-
-      <p class="fw-bold">1. 計算方法の選択：</p>
-      <p>平均法または先入先出法（FIFO）のいずれかを選択してください。</p>
-      <p class="fw-bold">2. データ入力：</p>
-      <p>生産データや製造原価データの項目に正確な数値を入力します。</p>
-      <p class="fw-bold">3. 計算開始：</p>
-      <p>すべてのデータを入力した後、「計算開始」ボタンを押下すると、総合原価の計算結果が即座に表示されます。</p>
-      <!-- </div> -->
+      <!-- 計算結果 -->
+      <div class="collapse" id="reuslt-area">
+        <div class="mb-5">
+          <h3>計算結果</h3>
+          <div class="mb-3">
+            <div class="card card-body">
+              <div class="mb-3">
+                <label for="result1" class="col-form-label">完成品総合原価</label>
+                <div>
+                  <input type="text" readonly class="form-control-plaintext" id="result1" value="1,000円" />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="result2" class="col-form-label">月末仕掛品原価</label>
+                <div>
+                  <input type="text" readonly class="form-control-plaintext" id="result2" value="5,000円" />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="result3" class="col-form-label">完成品総合原価</label>
+                <div>
+                  <input type="text" readonly class="form-control-plaintext" id="result3" value="10,000円" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- フッター -->
