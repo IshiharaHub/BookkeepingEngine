@@ -1,16 +1,3 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const inputs = document.querySelectorAll('.input-validate');
-
-  inputs[0].value = 400;
-  inputs[1].value = 80;
-  inputs[2].value = 2200;
-  inputs[3].value = 600;
-  inputs[4].value = 40;
-  inputs[5].value = 2000;
-  inputs[6].value = 136000;
-  inputs[7].value = 1034000;
-});
-
 /**
  * 生産データの計を更新
  *
