@@ -288,7 +288,7 @@ const isInputEmpty = () => {
       }
     }
   }
-  return false;
+  return result;
 };
 
 /**
@@ -328,7 +328,7 @@ const isNotNumeric = () => {
       }
     }
   }
-  return false;
+  return result;
 };
 
 /**
