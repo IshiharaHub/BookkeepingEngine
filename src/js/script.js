@@ -28,8 +28,10 @@ const refreshTotalDisplay = () => {
   return;
 };
 
-// イベント登録処理
-// 月初仕掛品、当月投入のいずれかの値が更新された場合に自動的に計の値を更新する
+/**
+ * イベント登録処理.
+ * 月初仕掛品、当月投入のいずれかの値が更新された場合に自動的に計の値を更新する.
+ */
 const refreshableTotalInputs = document.querySelectorAll('.refreshable-total-input');
 refreshableTotalInputs.forEach((input) => {
   input.addEventListener('blur', refreshTotalDisplay);
@@ -161,8 +163,10 @@ const resetTableDisplay = () => {
   });
 };
 
-// イベント登録処理
-// 製造原価データのいずれかの値が更新された場合に自動的に計の値を更新する
+/**
+ * イベント登録処理.
+ * 製造原価データのいずれかの値が更新された場合に自動的に計の値を更新する
+ */
 const refreshableTableInputs = document.querySelectorAll('.refreshable-table-input');
 refreshableTableInputs.forEach((input) => {
   input.addEventListener('blur', refreshTableDisplay);
