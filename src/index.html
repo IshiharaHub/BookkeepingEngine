@@ -50,7 +50,7 @@
           <label class="form-check-label" for="flexRadioDefault1">平均法</label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="calc-type" id="fifo" disabled />
+          <input class="form-check-input" type="radio" name="calc-type" id="fifo" />
           <label class="form-check-label" for="flexRadioDefault2">先入先出法</label>
         </div>
       </div>
@@ -66,43 +66,79 @@
             <div class="row">
               <label for="initial-work-in-progress" class="col-form-label">月初仕掛品</label>
               <div>
-                <input type="number" class="form-control text-right-input" id="initial-work-in-progress" placeholder="単位：個" />
+                <input
+                  type="text"
+                  inputmode="numeric"
+                  class="form-control text-right-input refreshable-total-input input-validate"
+                  id="initial-work-in-progress"
+                  placeholder="単位：個"
+                />
               </div>
             </div>
             <div class="mb-3 row">
-              <label for="initial-work-in-progress" class="col-form-label">月初仕掛品(加工進捗度)</label>
+              <label for="initial-work-in-progress-percent" class="col-form-label">月初仕掛品(加工進捗度)</label>
               <div>
-                <input type="number" class="form-control text-right-input" id="initial-work-in-progress-percent" placeholder="単位：％" />
+                <input
+                  type="text"
+                  inputmode="numeric"
+                  id="initial-work-in-progress-percent"
+                  class="form-control text-right-input input-validate"
+                  placeholder="単位：％"
+                />
               </div>
             </div>
             <div class="mb-3 form-group row">
               <label for="current-month-input" class="col-4 col-form-label">当月投入</label>
               <div>
-                <input type="number" class="form-control text-right-input" id="current-month-input" placeholder="単位：個" />
+                <input
+                  type="text"
+                  inputmode="numeric"
+                  id="current-month-input"
+                  class="form-control text-right-input refreshable-total-input input-validate"
+                  placeholder="単位：個"
+                />
               </div>
             </div>
             <div class="mb-3 row">
               <label for="total-production" class="col-form-label">計</label>
               <div>
-                <input type="number" class="form-control text-right-input" id="total-production" value="" placeholder="単位：個" disabled />
+                <input type="text" inputmode="numeric" id="total-production" class="form-control text-right-input" placeholder="単位：個" disabled />
               </div>
             </div>
             <div class="row">
               <label for="end-work-in-progress" class="col-form-label">月末仕掛品</label>
               <div>
-                <input type="number" class="form-control text-right-input" id="end-work-in-progress" value="" placeholder="単位：個" />
+                <input
+                  type="text"
+                  inputmode="numeric"
+                  id="end-work-in-progress"
+                  class="form-control text-right-input input-validate"
+                  placeholder="単位：個"
+                />
               </div>
             </div>
             <div class="mb-3 row">
-              <label for="end-work-in-progress" class="col-form-label">月末仕掛品(加工進捗度)</label>
+              <label for="end-work-in-progress-percent" class="col-form-label">月末仕掛品(加工進捗度)</label>
               <div>
-                <input type="number" class="form-control text-right-input" id="end-work-in-progress-percent" value="" placeholder="単位：％" />
+                <input
+                  type="text"
+                  inputmode="numeric"
+                  id="end-work-in-progress-percent"
+                  class="form-control text-right-input input-validate"
+                  placeholder="単位：％"
+                />
               </div>
             </div>
             <div class="mb-3 row">
               <label for="finished-goods" class="col-form-label">完成品</label>
               <div>
-                <input type="number" class="form-control text-right-input" id="finished-goods" value="" placeholder="単位：個" />
+                <input
+                  type="text"
+                  inputmode="numeric"
+                  id="finished-goods"
+                  class="form-control text-right-input input-validate"
+                  placeholder="単位：個"
+                />
               </div>
             </div>
           </div>
@@ -115,22 +151,35 @@
             <div class="mb-3 row">
               <label for="initial-cost-materials" class="col-form-label">月初仕掛品原価の直接材料費</label>
               <div>
-                <input type="number" class="form-control text-right-input" id="initial-cost-materials" placeholder="単位：円" />
+                <input
+                  type="text"
+                  inputmode="numeric"
+                  id="initial-cost-materials"
+                  class="form-control text-right-input refreshable-table-input input-validate"
+                  placeholder="単位：円"
+                />
               </div>
             </div>
             <div class="mb-3 row">
               <label for="initial-cost-processing" class="col-form-label">月初仕掛品原価の加工費</label>
               <div>
-                <input type="number" class="form-control text-right-input" id="initial-cost-processing" placeholder="単位：円" />
+                <input
+                  type="text"
+                  inputmode="numeric"
+                  id="initial-cost-processing"
+                  class="form-control text-right-input refreshable-table-input input-validate"
+                  placeholder="単位：円"
+                />
               </div>
             </div>
             <div class="mb-3 row">
               <label for="current-month-manufacturing-expense-materials" class="col-form-label">当月製造費用の直接材料費</label>
               <div>
                 <input
-                  type="number"
-                  class="form-control text-right-input"
+                  type="text"
+                  inputmode="numeric"
                   id="current-month-manufacturing-expense-materials"
+                  class="form-control text-right-input refreshable-table-input input-validate"
                   placeholder="単位：円"
                 />
               </div>
@@ -139,9 +188,10 @@
               <label for="current-month-manufacturing-expense-processing" class="col-form-label">当月製造費用の加工費</label>
               <div>
                 <input
-                  type="number"
-                  class="form-control text-right-input"
+                  type="text"
+                  inputmode="numeric"
                   id="current-month-manufacturing-expense-processing"
+                  class="form-control text-right-input refreshable-table-input input-validate"
                   placeholder="単位：円"
                 />
               </div>
@@ -163,29 +213,29 @@
                 <tr>
                   <th scope="row">月初仕掛品原価</th>
                   <!-- 直接材料費 -->
-                  <td>￥<span id="tbl-initial-cost-materials">136,000</span></td>
+                  <td><span id="tbl-initial-cost-materials" class="table-item"></span></td>
                   <!-- 加工費 -->
-                  <td>￥<span id="tbl-initial-cost-processing">115,200</span></td>
+                  <td><span id="tbl-initial-cost-processing" class="table-item"></span></td>
                   <!-- 計 -->
-                  <td>￥<span id="tbl-initial-cost-materials-total">251,200</span></td>
+                  <td><span id="tbl-initial-cost-materials-total" class="table-item"></span></td>
                 </tr>
                 <tr>
                   <th scope="row">当月製造費用</th>
                   <!-- 直接材料費 -->
-                  <td>￥<span id="tbl-current-month-manufacturing-expense-materials">1,034,000</span></td>
+                  <td><span id="tbl-current-month-manufacturing-expense-materials" class="table-item"></span></td>
                   <!-- 加工費 -->
-                  <td>￥<span id="tbl-current-month-manufacturing-expense-processing">825,600</span></td>
+                  <td><span id="tbl-current-month-manufacturing-expense-processing" class="table-item"></span></td>
                   <!-- 計 -->
-                  <td>￥<span id="tbl-current-month-manufacturing-expense-materials-total">1,859,600</span></td>
+                  <td><span id="tbl-current-month-manufacturing-expense-materials-total" class="table-item"></span></td>
                 </tr>
                 <tr>
                   <th scope="row">計</th>
                   <!-- 直接材料費 -->
-                  <td>￥<span id="tbl-direct-material-costs-total">1,170,000</span></td>
+                  <td><span id="tbl-direct-material-costs-total" class="table-item"></span></td>
                   <!-- 加工費 -->
-                  <td>￥<span id="processing-cost-total">940,800</span></td>
+                  <td><span id="processing-cost-total" class="table-item"></span></td>
                   <!-- 計 -->
-                  <td>￥<span id="all-total">2,110,800</span></td>
+                  <td><span id="all-total" class="table-item"></span></td>
                 </tr>
               </tbody>
             </table>
@@ -194,27 +244,27 @@
       </div>
 
       <!-- 計算結果 -->
-      <div class="collapse" id="reuslt-area">
+      <div id="result-area">
         <div class="mb-5">
           <h3>計算結果</h3>
           <div class="mb-3">
             <div class="card card-body">
               <div class="mb-3">
-                <label for="result1" class="col-form-label">完成品総合原価</label>
+                <label for="cost-of-goods-sold" class="col-form-label">完成品総合原価</label>
                 <div>
-                  <input type="text" readonly class="form-control-plaintext" id="result1" value="1,000円" />
+                  <input type="text" readonly class="form-control-plaintext" id="cost-of-goods-sold" value="1,000円" />
                 </div>
               </div>
               <div class="mb-3">
-                <label for="result2" class="col-form-label">月末仕掛品原価</label>
+                <label for="ending-work-in-progress-inventory" class="col-form-label">月末仕掛品原価</label>
                 <div>
-                  <input type="text" readonly class="form-control-plaintext" id="result2" value="5,000円" />
+                  <input type="text" readonly class="form-control-plaintext" id="ending-work-in-progress-inventory" value="5,000円" />
                 </div>
               </div>
               <div class="mb-3">
-                <label for="result3" class="col-form-label">完成品総合原価</label>
+                <label for="cost-per-finished-good" class="col-form-label">完成品単位原価</label>
                 <div>
-                  <input type="text" readonly class="form-control-plaintext" id="result3" value="10,000円" />
+                  <input type="text" readonly class="form-control-plaintext" id="cost-per-finished-good" value="10,000円" />
                 </div>
               </div>
             </div>
@@ -225,18 +275,7 @@
       <!-- 計算開始 -->
       <div>
         <div class="d-grid gap-2 mb-5">
-          <button
-            class="btn btn-primary"
-            id="calc-start-button"
-            onclick="calcStart()"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#reuslt-area"
-            aria-expanded="false"
-            aria-controls="reuslt-area"
-          >
-            計算開始
-          </button>
+          <button class="btn btn-primary" id="calc-start-button" onclick="calc()" type="button">計算開始</button>
         </div>
       </div>
     </div>
