@@ -265,10 +265,15 @@ const isCalcInputInvalid = () => {
 const isInputEmpty = () => {
   let result = false;
   const inputs = document.querySelectorAll('.input-validate');
+  let firstErrorElement = null;
+
   for (const input of inputs) {
     // 未入力チェック
     if (!input.value.trim()) {
       result = true;
+
+      // エラー位置にスクロールするための変数
+      if (!firstErrorElement) firstErrorElement = input;
 
       // エラーメッセージを出力
       // 前回のエラーメッセージを削除
@@ -292,6 +297,15 @@ const isInputEmpty = () => {
       }
     }
   }
+
+  // 最初のエラー項目の位置にスクロール
+  if (firstErrorElement) {
+    firstErrorElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+    });
+  }
+
   return result;
 };
 
@@ -302,14 +316,24 @@ const isInputEmpty = () => {
  */
 const isNotNumeric = () => {
   let result = false;
+  let firstErrorElement = null;
+  let blankElement = null;
+
   const inputs = document.querySelectorAll('.input-validate');
   for (const input of inputs) {
     // 未入力の場合は前段でエラーとなっているためチェックしない
-    if (input.value.trim() === '') continue;
+    if (input.value.trim() === '') {
+      blankElement = input;
+      continue;
+    }
 
     // 数値型チェック
     if (isNaN(input.value)) {
       result = true;
+
+      // エラー位置にスクロールするための変数
+      if (!blankElement && !firstErrorElement) firstErrorElement = input;
+
       // エラーメッセージを出力
       // 前回のエラーメッセージを削除
       const feedback = input.parentNode.querySelector('.invalid-feedback');
@@ -331,6 +355,15 @@ const isNotNumeric = () => {
         feedback.remove();
       }
     }
+  }
+
+  // 最初のエラー項目の位置にスクロール
+  // ただし、未入力エラーが存在する場合はスクロールしない
+  if (firstErrorElement) {
+    firstErrorElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+    });
   }
   return result;
 };
