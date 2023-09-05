@@ -1,0 +1,15 @@
+{
+  "name": "bookkeepingengine",
+  "version": "1.0.0",
+  "description": "簿記の計算を自動でしてくれるWEBアプリ - https://ishiharahub.github.io/BookkeepingEngine/src/index.html",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "doc": "jsdoc -r src"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jsdoc": "^4.0.2"
+  }
+}
