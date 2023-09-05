@@ -197,6 +197,10 @@ const calc = () => {
     // TODO：ひょうがが実装する
   }
 
+  // この書き方もできる( nishioka はこの書き方が好き)
+  // 計算結果
+  // const result = calcType ? calcAvarage() : calcFifo();
+
   // 計算結果を画面に描画
   setCalcResult(result);
 
