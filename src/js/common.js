@@ -85,14 +85,7 @@ const createSideVarPageList = () => {
   const pageList = document.getElementById('side-bar-page-list');
 
   // TODO 開発用の条件分岐（本番公開する場合は削除して prod に合わせる
-  let pages = null;
-  if (window.location.hostname === 'localhost') {
-    pages = pages_localhost;
-  } else if (window.location.protocol === 'file:') {
-    pages = pages_file;
-  } else {
-    pages = pages_prod;
-  }
+  let pages = getPages();
 
   // ページのデータを元にリンクを生成し、フッターに追加
   pages.forEach((page) => {
@@ -102,7 +95,8 @@ const createSideVarPageList = () => {
   // その他のページリストの要素を取得
   const otherPageList = document.getElementById('side-bar-other-page-list');
 
-  const otherPages = other_pages;
+  // TODO 開発用ロジック
+  const otherPages = getOtherPages();
   otherPages.forEach((page) => {
     createSideVarPageItem(otherPageList, page);
   });
@@ -168,14 +162,7 @@ const createFooterPageList = () => {
   const pageList = document.getElementById('footer-page-list');
 
   // TODO 開発用の条件分岐（本番公開する場合は削除して prod に合わせる
-  let pages = null;
-  if (window.location.hostname === 'localhost') {
-    pages = pages_localhost;
-  } else if (window.location.protocol === 'file:') {
-    pages = pages_file;
-  } else {
-    pages = pages_prod;
-  }
+  let pages = getPages();
 
   // ページのデータを元にリンクを生成し、フッターに追加
   pages.forEach((page) => {
@@ -184,7 +171,9 @@ const createFooterPageList = () => {
 
   // 計算ツール集の要素を取得
   const otherPageList = document.getElementById('footer-other-page-list');
-  const otherPages = other_pages;
+
+  // TODO test you kansu
+  const otherPages = getOtherPages();
   // ページのデータを元にリンクを生成し、フッターに追加
   otherPages.forEach((page) => {
     createFooterPageItem(otherPageList, page);
@@ -314,20 +303,80 @@ const pages_file = [
   },
 ];
 
-const other_pages = [
+const other_pages_localhost = [
   {
     title: 'フィードバック',
     path: '/src/other/feedback.html',
-    icon: 'bi-chat-dots', // チャットのアイコンをフィードバックに選択
+    icon: 'bi-chat-dots',
   },
   {
     title: 'コンタクト',
     path: '/src/other/contact.html',
-    icon: 'bi-envelope', // メールのアイコンをコンタクトに選択
+    icon: 'bi-envelope',
   },
   {
     title: 'プライバシーポリシー',
     path: '/src/other/privacy-policy.html',
-    icon: 'bi-shield-lock', // ロックのアイコンをプライバシーポリシーに選択
+    icon: 'bi-shield-lock',
   },
 ];
+
+const other_pages_prod = [
+  {
+    title: 'フィードバック',
+    path: '/BookkeepingEngine/src/other/feedback.html',
+    icon: 'bi-chat-dots',
+  },
+  {
+    title: 'コンタクト',
+    path: '/BookkeepingEngine/src/other/contact.html',
+    icon: 'bi-envelope',
+  },
+  {
+    title: 'プライバシーポリシー',
+    path: '/BookkeepingEngine/src/other/privacy-policy.html',
+    icon: 'bi-shield-lock',
+  },
+];
+
+const other_pages_file = [
+  {
+    title: 'フィードバック',
+    path: './other/feedback.html',
+    icon: 'bi-chat-dots',
+  },
+  {
+    title: 'コンタクト',
+    path: './other/contact.html',
+    icon: 'bi-envelope',
+  },
+  {
+    title: 'プライバシーポリシー',
+    path: './other/privacy-policy.html',
+    icon: 'bi-shield-lock',
+  },
+];
+
+const getPages = () => {
+  let pages = null;
+  if (window.location.hostname === 'localhost') {
+    pages = pages_localhost;
+  } else if (window.location.protocol === 'file:') {
+    pages = pages_file;
+  } else {
+    pages = pages_prod;
+  }
+  return pages;
+};
+
+const getOtherPages = () => {
+  let pages = null;
+  if (window.location.hostname === 'localhost') {
+    pages = other_pages_localhost;
+  } else if (window.location.protocol === 'file:') {
+    pages = other_pages_file;
+  } else {
+    pages = other_pages_prod;
+  }
+  return pages;
+};
