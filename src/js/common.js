@@ -61,6 +61,12 @@ const createSidebar = () => {
       </div>
       <!-- セパレーターを追加 -->
       <hr class="my-4" />
+      <div>
+      <h5>その他</h5>
+        <ul class="list-group list-group-flush" id="side-bar-other-page-list"></ul>
+      </div>
+      <!-- セパレーターを追加 -->
+      <hr class="my-4" />
       <!-- フッターと同じ文言 -->
       <p class="text-muted">© 2023 Ishihara Hub. 「BookkeepingEngine」 - 簿記の計算を自動化する。</p>
     </div>
@@ -90,21 +96,33 @@ const createSideVarPageList = () => {
 
   // ページのデータを元にリンクを生成し、フッターに追加
   pages.forEach((page) => {
-    const listItem = document.createElement('li');
-    const link = document.createElement('a');
-    const icon = document.createElement('i');
-
-    icon.classList.add('bi');
-    icon.classList.add(page.icon);
-    link.classList.add('side-bar-page-list-link');
-    link.appendChild(icon);
-    link.href = page.path;
-    link.innerHTML += page.title;
-    link.classList.add('text-body');
-    listItem.classList.add('list-group-item');
-    listItem.appendChild(link);
-    pageList.appendChild(listItem);
+    createSideVarPageItem(pageList, page);
   });
+
+  // その他のページリストの要素を取得
+  const otherPageList = document.getElementById('side-bar-other-page-list');
+
+  const otherPages = other_pages;
+  otherPages.forEach((page) => {
+    createSideVarPageItem(otherPageList, page);
+  });
+};
+
+const createSideVarPageItem = (pageList, page) => {
+  const listItem = document.createElement('li');
+  const link = document.createElement('a');
+  const icon = document.createElement('i');
+
+  icon.classList.add('bi');
+  icon.classList.add(page.icon);
+  link.classList.add('side-bar-page-list-link');
+  link.appendChild(icon);
+  link.href = page.path;
+  link.innerHTML += page.title;
+  link.classList.add('text-body');
+  listItem.classList.add('list-group-item');
+  listItem.appendChild(link);
+  pageList.appendChild(listItem);
 };
 
 /**
@@ -118,9 +136,15 @@ const createFooter = () => {
     <div class="container">
       <div class="row">
         <!-- 計算ツール集の部分 -->
-        <div class="col-md-8">
+        <div class="col-md-4">
           計算ツール集
           <ul class="list-unstyled p-1" id="footer-page-list"></ul>
+        </div>
+
+        <!-- その他の部分 -->
+        <div class="col-md-4">
+          その他
+          <ul class="list-unstyled p-1" id="footer-other-page-list"></ul>
         </div>
 
         <!-- コピーライトの部分 -->
@@ -155,16 +179,31 @@ const createFooterPageList = () => {
 
   // ページのデータを元にリンクを生成し、フッターに追加
   pages.forEach((page) => {
-    const listItem = document.createElement('li');
-    const link = document.createElement('a');
-
-    link.href = page.path;
-    link.innerText = page.title;
-    link.classList.add('text-secondary');
-    listItem.appendChild(link);
-    listItem.classList.add('mb-1');
-    pageList.appendChild(listItem);
+    createFooterPageItem(pageList, page);
   });
+
+  // 計算ツール集の要素を取得
+  const otherPageList = document.getElementById('footer-other-page-list');
+  const otherPages = other_pages;
+  // ページのデータを元にリンクを生成し、フッターに追加
+  otherPages.forEach((page) => {
+    createFooterPageItem(otherPageList, page);
+  });
+};
+
+/**
+ * 共通処理：フッターのページのリンクを動的に生成する.
+ */
+const createFooterPageItem = (pageList, page) => {
+  const listItem = document.createElement('li');
+  const link = document.createElement('a');
+
+  link.href = page.path;
+  link.innerText = page.title;
+  link.classList.add('text-secondary');
+  listItem.appendChild(link);
+  listItem.classList.add('mb-1');
+  pageList.appendChild(listItem);
 };
 
 /**
@@ -272,5 +311,23 @@ const pages_file = [
     title: '在庫評価',
     path: './calculations/inventory-valuation.html',
     icon: 'bi-box',
+  },
+];
+
+const other_pages = [
+  {
+    title: 'フィードバック',
+    path: '/src/other/feedback.html',
+    icon: 'bi-chat-dots', // チャットのアイコンをフィードバックに選択
+  },
+  {
+    title: 'コンタクト',
+    path: '/src/other/contact.html',
+    icon: 'bi-envelope', // メールのアイコンをコンタクトに選択
+  },
+  {
+    title: 'プライバシーポリシー',
+    path: '/src/other/privacy-policy.html',
+    icon: 'bi-shield-lock', // ロックのアイコンをプライバシーポリシーに選択
   },
 ];
