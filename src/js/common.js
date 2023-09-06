@@ -56,7 +56,7 @@ const createSidebar = () => {
     </div>
     <div class="offcanvas-body">
       <div>
-        <h5>ページ一覧</h5>
+        <h5>計算ツール集</h5>
         <ul class="list-group list-group-flush" id="side-bar-page-list"></ul>
       </div>
       <!-- セパレーターを追加 -->
@@ -72,10 +72,10 @@ const createSidebar = () => {
 };
 
 /**
- * 共通処理：サイドバーのページ一覧を動的に生成する.
+ * 共通処理：サイドバーの計算ツール集を動的に生成する.
  */
 const createSideVarPageList = () => {
-  // ページ一覧の要素を取得
+  // 計算ツール集の要素を取得
   const pageList = document.getElementById('side-bar-page-list');
 
   // TODO 開発用の条件分岐（本番公開する場合は削除して prod に合わせる
@@ -117,9 +117,9 @@ const createFooter = () => {
   <footer class="bg-light mt-auto py-3 border-top">
     <div class="container">
       <div class="row">
-        <!-- ページ一覧の部分 -->
+        <!-- 計算ツール集の部分 -->
         <div class="col-md-8">
-          ページ一覧
+          計算ツール集
           <ul class="list-unstyled p-1" id="footer-page-list"></ul>
         </div>
 
@@ -137,10 +137,10 @@ const createFooter = () => {
 };
 
 /**
- * 共通処理：フッターのページ一覧を動的に生成する.
+ * 共通処理：フッターの計算ツール集を動的に生成する.
  */
 const createFooterPageList = () => {
-  // ページ一覧の要素を取得
+  // 計算ツール集の要素を取得
   const pageList = document.getElementById('footer-page-list');
 
   // TODO 開発用の条件分岐（本番公開する場合は削除して prod に合わせる
@@ -168,8 +168,8 @@ const createFooterPageList = () => {
 };
 
 /**
- * ページ一覧の定数.
- * ページ一覧を表示する際はこ.htmlONから動的に組み立てる.
+ * 計算ツール集の定数.
+ * 計算ツール集を表示する際はこ.htmlONから動的に組み立てる.
  *
  */
 const pages_localhost = [
