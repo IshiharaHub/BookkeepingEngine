@@ -14,12 +14,22 @@ window.onload = () => {
  * 共通処理：ヘッダーを動的に生成する。
  */
 const createNavbar = () => {
+  // TODO 開発用の条件分岐（本番公開する場合は削除して prod に合わせる
+  let topUrl = null;
+  if (window.location.hostname === 'localhost') {
+    topUrl = '/src/';
+  } else if (window.location.protocol === 'file:') {
+    topUrl = '../index.html';
+  } else {
+    topUrl = '/BookkeepingEngine/src/';
+  }
+
   // ヘッダーHTML
   const navbarHTML = `
         <!-- 画面上部のヘッダー -->
         <nav class="navbar fixed-top navbar-dark bg-dark">
           <div class="container-fluid">
-            <a class="navbar-brand" href="/">BookkeepingEngine</a>
+            <a class="navbar-brand" href="${topUrl}">BookkeepingEngine</a>
             <!-- Toggler (ハンバーガーメニュー) -->
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#side-bar" aria-controls="#side-bar">
               <span class="navbar-toggler-icon"></span>
@@ -67,6 +77,16 @@ const createSidebar = () => {
 const createSideVarPageList = () => {
   // ページ一覧の要素を取得
   const pageList = document.getElementById('side-bar-page-list');
+
+  // TODO 開発用の条件分岐（本番公開する場合は削除して prod に合わせる
+  let pages = null;
+  if (window.location.hostname === 'localhost') {
+    pages = pages_localhost;
+  } else if (window.location.protocol === 'file:') {
+    pages = pages_file;
+  } else {
+    pages = pages_prod;
+  }
 
   // ページのデータを元にリンクを生成し、フッターに追加
   pages.forEach((page) => {
@@ -123,6 +143,16 @@ const createFooterPageList = () => {
   // ページ一覧の要素を取得
   const pageList = document.getElementById('footer-page-list');
 
+  // TODO 開発用の条件分岐（本番公開する場合は削除して prod に合わせる
+  let pages = null;
+  if (window.location.hostname === 'localhost') {
+    pages = pages_localhost;
+  } else if (window.location.protocol === 'file:') {
+    pages = pages_file;
+  } else {
+    pages = pages_prod;
+  }
+
   // ページのデータを元にリンクを生成し、フッターに追加
   pages.forEach((page) => {
     const listItem = document.createElement('li');
@@ -142,7 +172,7 @@ const createFooterPageList = () => {
  * ページ一覧を表示する際はこ.htmlONから動的に組み立てる.
  *
  */
-const pages = [
+const pages_localhost = [
   {
     title: '総合原価計算',
     path: '/src/calculations/total-cost-calc.html',
@@ -171,6 +201,76 @@ const pages = [
   {
     title: '在庫評価',
     path: '/src/calculations/inventory-valuation.html',
+    icon: 'bi-box',
+  },
+];
+
+const pages_prod = [
+  {
+    title: '総合原価計算',
+    path: '/BookkeepingEngine/src/calculations/total-cost-calc.html',
+    icon: 'bi-calculator',
+  },
+  {
+    title: '減価償却計算',
+    path: '/BookkeepingEngine/src/calculations/depreciation-calc.html',
+    icon: 'bi-graph-down',
+  },
+  {
+    title: '繰延税金計算',
+    path: '/BookkeepingEngine/src/calculations/deferred-tax-calc.html',
+    icon: 'bi-cash-coin',
+  },
+  {
+    title: '利益分析（ブレークイーブン点計算）',
+    path: '/BookkeepingEngine/src/calculations/break-even-calc.html',
+    icon: 'bi-bar-chart',
+  },
+  {
+    title: 'キャッシュフロー予測',
+    path: '/BookkeepingEngine/src/calculations/cashflow-forecast.html',
+    icon: 'bi-cash-stack',
+  },
+  {
+    title: '在庫評価',
+    path: '/BookkeepingEngine/src/calculations/inventory-valuation.html',
+    icon: 'bi-box',
+  },
+];
+
+/**
+ * 直接ファイル起動した場合
+ * 計算ページから他の計算ページには飛べない
+ */
+const pages_file = [
+  {
+    title: '総合原価計算',
+    path: './calculations/total-cost-calc.html',
+    icon: 'bi-calculator',
+  },
+  {
+    title: '減価償却計算',
+    path: './calculations/depreciation-calc.html',
+    icon: 'bi-graph-down',
+  },
+  {
+    title: '繰延税金計算',
+    path: './calculations/deferred-tax-calc.html',
+    icon: 'bi-cash-coin',
+  },
+  {
+    title: '利益分析（ブレークイーブン点計算）',
+    path: './calculations/break-even-calc.html',
+    icon: 'bi-bar-chart',
+  },
+  {
+    title: 'キャッシュフロー予測',
+    path: './calculations/cashflow-forecast.html',
+    icon: 'bi-cash-stack',
+  },
+  {
+    title: '在庫評価',
+    path: './calculations/inventory-valuation.html',
     icon: 'bi-box',
   },
 ];
