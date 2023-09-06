@@ -1,0 +1,28 @@
+a {
+  text-decoration: none;
+}
+.text-right-input {
+  text-align: right;
+}
+
+#result-area {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s; /* 0.5秒間のアニメーション */
+}
+
+table td {
+  text-align: right;
+}
+
+.bi {
+  font-size: 1.5rem;
+  padding-right: 1rem;
+}
+
+.side-bar-page-list-link {
+  display: block;
+  padding: 3px;
+  -webkit-tap-highlight-color: rgba(128, 128, 128, 0.2);
+  border-radius: 7px 7px 7px 7px;
+}
