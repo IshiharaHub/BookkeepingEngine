@@ -19,7 +19,7 @@ const createNavbar = () => {
         <!-- 画面上部のヘッダー -->
         <nav class="navbar fixed-top navbar-dark bg-dark">
           <div class="container-fluid">
-            <a class="navbar-brand" href="/src/">BookkeepingEngine</a>
+            <a class="navbar-brand" href="BookkeepingEngine/src/">BookkeepingEngine</a>
             <!-- Toggler (ハンバーガーメニュー) -->
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#side-bar" aria-controls="#side-bar">
               <span class="navbar-toggler-icon"></span>
