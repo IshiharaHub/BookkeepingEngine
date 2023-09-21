@@ -199,38 +199,8 @@ const calc = () => {
     // 平均法の場合
     result = calcAvarage();
   } else {
-    // 完成品数の取得
-const finishedGoods = parseFloat(document.getElementById('finished-goods').value);
-
-// 月末の仕掛品数の取得
-const endWorkInProgress = parseFloat(document.getElementById('end-work-in-progress').value);
-
-// 月末の仕掛品の個数の取得
-const endWorkInProgressQuantity = parseFloat(document.getElementById('end-work-in-progress-quantity').value);
-
-// 月初の仕掛品数の取得
-const initialWorkInProgress = parseFloat(document.getElementById('initial-work-in-progress').value);
-
-// 月初の仕掛品の個数の取得
-const initialWorkInProgressQuantity = parseFloat(document.getElementById('initial-work-in-progress-quantity').value);
-
-// 当月の仕掛品数の取得
-const currentMonthWorkInProgress = parseFloat(document.getElementById('current-month-work-in-progress').value);
-
-// 計算
-const completedGoods = initialWorkInProgress + (currentMonthWorkInProgress * finishedGoods - initialWorkInProgress * finishedGoods);
-const endOfMonthWorkInProgress = currentMonthWorkInProgress * endWorkInProgressQuantity;
-
-// 計算結果を表示
-console.log(`完成品: ${completedGoods}`);
-console.log(`月末仕掛品: ${endOfMonthWorkInProgress}`);
-
-
-
-
-
-    
-  }
+  result=Sakiire();
+    }
 
   // この書き方もできる( nishioka はこの書き方が好き)
   // 計算結果
