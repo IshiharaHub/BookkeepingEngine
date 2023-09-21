@@ -206,6 +206,24 @@ const calc = () => {
     //完成品＝月初＋当月単価*完成品個数-月初単価
     //月末＝当月単価*月末個数
     // TODO：ひょうがが実装する
+// TODO: ひょうがが実装する
+// 完成品＝月初＋当月単価*完成品個数-月初単価
+// 月末＝当月単価*月末個数
+const initialFinishedGoods = parseFloat(document.getElementById('initial-finished-goods').value); // 月初の完成品個数
+const endFinishedGoods = parseFloat(document.getElementById('end-finished-goods').value); // 月末の完成品個数
+const initialUnitCost = parseFloat(document.getElementById('initial-unit-cost').value); // 月初の単価
+const currentUnitCost = parseFloat(document.getElementById('current-unit-cost').value); // 当月の単価
+
+// 完成品の計算
+const finishedGoods = initialFinishedGoods + (currentUnitCost * (endFinishedGoods - initialFinishedGoods));
+
+// 月末の計算
+const endWorkInProgress = currentUnitCost * endFinishedGoods;
+
+// それぞれの結果を画面に表示
+document.getElementById('finished-goods').value = formatCurrency(finishedGoods); // 完成品
+document.getElementById('end-work-in-progress').value = formatCurrency(endWorkInProgress); // 月末仕掛品
+
   }
 
   // この書き方もできる( nishioka はこの書き方が好き)
