@@ -174,40 +174,6 @@ refreshableTableInputs.forEach((input) => {
   input.addEventListener('blur', refreshTableDisplay);
 });
 
-const calcFifo = () => {
-  // 入力値の取得
-  const initialWorkInProgress = parseFloat(document.getElementById('initial-work-in-progress').value); // 月初仕掛品
-  const currentMonthInput = parseFloat(document.getElementById('current-month-input').value); // 当月投入
-  const finishedGoods = parseFloat(document.getElementById('finished-goods').value); // 完成品
-  const endWorkInProgress = parseFloat(document.getElementById('end-work-in-progress').value); // 月末仕掛品
-  const endWorkInProgressPercent = parseFloat(document.getElementById('end-work-in-progress-percent').value) / 100; // 月末仕掛品の加工進捗度
-  const materialCostPerUnit = parseFloat(document.getElementById('material-cost-per-unit').value); // 直接材料費/個
-  const processingCostPerUnit = parseFloat(document.getElementById('processing-cost-per-unit').value); // 加工費/個
-
-  // 月初仕掛品の単価
-  const initialWorkInProgressUnitPrice = (finishedGoods - (initialWorkInProgress - currentMonthInput)) / initialWorkInProgress;
-
-  // 月末仕掛品の単価
-  const endWorkInProgressUnitPrice = (endWorkInProgressPercent * processingCostPerUnit) + ((1 - endWorkInProgressPercent) * materialCostPerUnit);
-
-  // 完成品総合原価の計算
-  const costOfGoodsSold = initialWorkInProgress + (currentMonthInput * initialWorkInProgressUnitPrice);
-
-  // 月末仕掛品原価の計算
-  const endingWorkInProgressInventory = endWorkInProgress * endWorkInProgressUnitPrice;
-
-  // 完成品単位原価の計算
-  const costPerFinishedGood = costOfGoodsSold / finishedGoods;
-
-  // 計算結果をオブジェクトに格納して返す
-  return {
-    costOfGoodsSold,
-    endingWorkInProgressInventory,
-    costPerFinishedGood,
-  };
-};
-
-
 /**
  * 計算開始
  *
@@ -567,8 +533,39 @@ const calcAvarageCostPerFinishedGood = (costOfGoodsSold) => {
  * 総合原価計算（先入先出法 FIFO）
  */
 const calcFifo = () => {
-  // TODO:未実装
-  alert('未実装');
+  
+  // 入力値の取得
+  const initialWorkInProgress = parseFloat(document.getElementById('initial-work-in-progress').value); // 月初仕掛品
+  const currentMonthInput = parseFloat(document.getElementById('current-month-input').value); // 当月投入
+  const finishedGoods = parseFloat(document.getElementById('finished-goods').value); // 完成品
+  const endWorkInProgress = parseFloat(document.getElementById('end-work-in-progress').value); // 月末仕掛品
+  const endWorkInProgressPercent = parseFloat(document.getElementById('end-work-in-progress-percent').value) / 100; // 月末仕掛品の加工進捗度
+  const materialCostPerUnit = parseFloat(document.getElementById('material-cost-per-unit').value); // 直接材料費/個
+  const processingCostPerUnit = parseFloat(document.getElementById('processing-cost-per-unit').value); // 加工費/個
+
+  // 月初仕掛品の単価
+  const initialWorkInProgressUnitPrice = (finishedGoods - (initialWorkInProgress - currentMonthInput)) / initialWorkInProgress;
+
+  // 月末仕掛品の単価
+  const endWorkInProgressUnitPrice = (endWorkInProgressPercent * processingCostPerUnit) + ((1 - endWorkInProgressPercent) * materialCostPerUnit);
+
+  // 完成品総合原価の計算
+  const costOfGoodsSold = initialWorkInProgress + (currentMonthInput * initialWorkInProgressUnitPrice);
+
+  // 月末仕掛品原価の計算
+  const endingWorkInProgressInventory = endWorkInProgress * endWorkInProgressUnitPrice;
+
+  // 完成品単位原価の計算
+  const costPerFinishedGood = costOfGoodsSold / finishedGoods;
+
+  // 計算結果をオブジェクトに格納して返す
+  return {
+    costOfGoodsSold,
+    endingWorkInProgressInventory,
+    costPerFinishedGood,
+  };
+};
+
 };
 
 /**
